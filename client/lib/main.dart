@@ -1,4 +1,4 @@
-import 'package:client/home.dart';
+import 'package:client/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,9 +14,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'DataPlate',
       theme: ThemeData(
-        primarySwatch: Colors.deepPurple,
+        primarySwatch: Colors.blueGrey,
       ),
-      home: const Home(),
+      home: const HomePage(),
     );
   }
 }
