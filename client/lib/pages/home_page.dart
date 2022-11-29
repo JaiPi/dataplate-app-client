@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:client/bottomNav.dart';
 import 'package:client/views/home_view.dart';
 import 'package:client/views/senhas_view.dart';
-import 'package:client/views/profile_view.dart';
 
 // ignore: depend_on_referenced_packages
 import 'package:http/http.dart' as http;
@@ -25,7 +24,6 @@ class _HomePageState extends State<HomePage> {
   List<Widget> pages = [
     const Homeview(),
     const Senhasview(),
-    const ProfileView(),
   ];
 
   void changePage(int index) {
