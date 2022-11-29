@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'DataPlate',
       theme: ThemeData(
         primarySwatch: Colors.blueGrey,
+        fontFamily: "Montserrat-Medium",
       ),
       home: const HomePage(),
     );
