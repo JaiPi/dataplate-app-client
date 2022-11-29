@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:client/bottomNav.dart';
 import 'package:client/views/home_view.dart';
 import 'package:client/views/senhas_view.dart';
-import 'package:client/views/profile_view.dart';
+import 'package:client/views/my_senhas_view.dart';
+import '../views/my_senhas_view.dart';
 
 // ignore: depend_on_referenced_packages
 import 'package:http/http.dart' as http;
@@ -23,9 +24,8 @@ class _HomePageState extends State<HomePage> {
   var data;
 
   List<Widget> pages = [
-    const Homeview(),
     const Senhasview(),
-    const ProfileView(),
+    const MySenhasView(),
   ];
 
   void changePage(int index) {
@@ -74,13 +74,13 @@ class _HomePageState extends State<HomePage> {
       //     : const Center(
       //         child: CircularProgressIndicator(),
       //       ),
-      drawer: MyDrawer(),
+      drawer: const MyDrawer(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           // myText = _nameController.text;
           // setState(() {});
         },
-        child: const Icon(Icons.send),
+        child: const Icon(Icons.event),
       ),
     );
   }
