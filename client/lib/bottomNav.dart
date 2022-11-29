@@ -17,11 +17,11 @@ class BottomNav extends StatelessWidget {
       type: BottomNavigationBarType.fixed,
       items: const [
         BottomNavigationBarItem(
-          icon: Icon(Icons.home),
+          icon: Icon(Icons.food_bank_sharp),
           label: "home",
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.receipt),
+          icon: Icon(Icons.receipt_sharp),
           label: "senhas",
         ),
       ],
