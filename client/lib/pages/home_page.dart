@@ -56,7 +56,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: pages[_pageIndex],
       bottomNavigationBar: BottomNav(changePage, _pageIndex),
-      backgroundColor: Colors.grey[200],
+      backgroundColor: Colors.blueGrey[100],
       appBar: AppBar(
         title: const Text("DataPlate"),
       ),
