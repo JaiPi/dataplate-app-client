@@ -1,7 +1,7 @@
 import 'package:client/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:client/bottomNav.dart';
-import 'package:client/views/home_view.dart';
+import 'package:client/views/menu_view.dart';
 import 'package:client/views/senhas_view.dart';
 
 // ignore: depend_on_referenced_packages
