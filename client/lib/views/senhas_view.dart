@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:date_picker_timeline/date_picker_timeline.dart';
+import 'package:intl/intl.dart';
 
 class Senhasview extends StatefulWidget {
   const Senhasview({super.key});
@@ -13,11 +14,11 @@ class _SenhasviewState extends State<Senhasview> {
 
   DateTime _selectedValue = DateTime.now();
 
-
   @override
   void initState() {
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,25 +28,15 @@ class _SenhasviewState extends State<Senhasview> {
           _controller.animateToSelection();
         },
       ),
-        appBar: AppBar(
-          title: Text("TITULO"),
-        ),
-        body: Container(
-          padding: const EdgeInsets.all(20.0),
-          color: Colors.blueGrey[100],
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              const Text("You Selected:"),
-              const Padding(
-                padding: EdgeInsets.all(10),
-              ),
-              Text(_selectedValue.toString()),
-              const Padding(
-                padding: EdgeInsets.all(20),
-              ),
-              Container(
-                child: DatePicker(
+      body: Column(
+        children: [
+          Container(
+            padding: const EdgeInsets.all(20.0),
+            color: Colors.blueGrey[100],
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                DatePicker(
                   DateTime.now(),
                   width: 60,
                   height: 80,
@@ -65,9 +56,12 @@ class _SenhasviewState extends State<Senhasview> {
                     });
                   },
                 ),
-              ),
-            ],
+                Text(DateFormat('dd MMM yyyy').format(_selectedValue)),
+              ],
+            ),
           ),
-        ));
+        ],
+      ),
+    );
   }
 }
