@@ -9,25 +9,22 @@ class BottomNav extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-        elevation: 10,
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        onTap: function,
-        currentIndex: index,
-        type: BottomNavigationBarType.fixed,
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: "home",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.receipt),
-            label: "senhas",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: "perfil",
-          ),
-        ]);
+      elevation: 10,
+      showSelectedLabels: false,
+      showUnselectedLabels: false,
+      onTap: function,
+      currentIndex: index,
+      type: BottomNavigationBarType.fixed,
+      items: const [
+        BottomNavigationBarItem(
+          icon: Icon(Icons.home),
+          label: "home",
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.receipt),
+          label: "senhas",
+        ),
+      ],
+    );
   }
 }
