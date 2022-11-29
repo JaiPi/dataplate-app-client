@@ -18,7 +18,7 @@ class BottomNav extends StatelessWidget {
       items: const [
         BottomNavigationBarItem(
           icon: Icon(Icons.food_bank_sharp),
-          label: "home",
+          label: "menus",
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.receipt_sharp),

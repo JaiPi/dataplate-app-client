@@ -1,7 +1,5 @@
 import 'package:client/date_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:date_picker_timeline/date_picker_timeline.dart';
-import 'package:intl/intl.dart';
 
 class Senhasview extends StatefulWidget {
   const Senhasview({super.key});
@@ -11,9 +9,6 @@ class Senhasview extends StatefulWidget {
 }
 
 class _SenhasviewState extends State<Senhasview> {
-  DatePickerController _controller = DatePickerController();
-
-  DateTime _selectedValue = DateTime.now();
 
   @override
   void initState() {
@@ -26,7 +21,6 @@ class _SenhasviewState extends State<Senhasview> {
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.replay),
         onPressed: () {
-          _controller.animateToSelection();
         },
       ),
       body: Column(

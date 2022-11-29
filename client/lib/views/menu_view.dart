@@ -1,20 +1,39 @@
 import 'package:client/date_picker.dart';
 import 'package:flutter/material.dart';
-
-import 'package:date_picker_timeline/date_picker_timeline.dart';
 import 'package:intl/intl.dart';
 
-class Homeview extends StatefulWidget {
-  const Homeview({super.key});
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+
+class MenuView extends StatefulWidget {
+  const MenuView({super.key});
 
   @override
-  State<Homeview> createState() => _HomeviewState();
+  State<MenuView> createState() => _MenuViewState();
 }
 
-class _HomeviewState extends State<Homeview> {
-  DatePickerController _controller = DatePickerController();
+class _MenuViewState extends State<MenuView> {
 
-  DateTime _selectedValue = DateTime.now();
+  
+  var url = "https://jsonplaceholder.typicode.com/photos";
+  var data;
+
+  @override
+  void initState() {
+    super.initState();
+    fetchData();
+  }
+
+  fetchData() async {
+    var res = await http.get(Uri.parse(url));
+    data = jsonDecode(res.body);
+    setState(() {});
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +41,6 @@ class _HomeviewState extends State<Homeview> {
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.replay),
         onPressed: () {
-          _controller.animateToSelection();
         },
       ),
       backgroundColor: const Color(0xFFFFFFFF),
@@ -30,45 +48,19 @@ class _HomeviewState extends State<Homeview> {
         children: [
           const MyDatePicker(),
           Expanded(
-            child: ListView(
-              children: [
-                Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: const [
-                              Text(
-                                "Bom Dia",
-                              ),
-                              Text(
-                                "Escolha as suas refeições",
-                              )
-                            ],
-                          ),
-                          Container(
-                            width: 50,
-                            height: 50,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                image: const DecorationImage(
-                                  fit: BoxFit.cover,
-                                  image: AssetImage(
-                                    "assets/images/logo.png",
-                                  ),
-                                )),
-                          )
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ],
+            child: data != null
+          ? ListView.builder(
+              itemBuilder: (context, index) {
+                return ListTile(
+                  title: Text(data[index]["title"]),
+                  subtitle: Text("ID: ${data[index]["id"]}"),
+                  leading: Image.network(data[index]["url"]),
+                );
+              },
+              itemCount: data.length,
+            )
+          : const Center(
+              child: CircularProgressIndicator(),
             ),
           ),
         ],

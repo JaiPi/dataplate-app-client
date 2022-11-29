@@ -12,7 +12,7 @@ class MyDatePicker extends StatefulWidget {
 }
 
 class _MyDatePickerState extends State<MyDatePicker> {
-  DatePickerController _controller = DatePickerController();
+  final DatePickerController _controller = DatePickerController();
 
   DateTime _selectedValue = DateTime.now();
 
