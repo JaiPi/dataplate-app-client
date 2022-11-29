@@ -18,6 +18,12 @@ class _HomeviewState extends State<Homeview> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.replay),
+        onPressed: () {
+          _controller.animateToSelection();
+        },
+      ),
       backgroundColor: const Color(0xFFFFFFFF),
       body: Column(
         children: [

@@ -75,13 +75,6 @@ class _HomePageState extends State<HomePage> {
       //         child: CircularProgressIndicator(),
       //       ),
       drawer: MyDrawer(),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // myText = _nameController.text;
-          // setState(() {});
-        },
-        child: const Icon(Icons.send),
-      ),
     );
   }
 }
