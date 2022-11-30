@@ -13,8 +13,6 @@ class MenuView extends StatefulWidget {
 }
 
 class _MenuViewState extends State<MenuView> {
-
-  
   var url = "https://jsonplaceholder.typicode.com/photos";
   var data;
 
@@ -40,8 +38,7 @@ class _MenuViewState extends State<MenuView> {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.replay),
-        onPressed: () {
-        },
+        onPressed: () {},
       ),
       backgroundColor: const Color(0xFFFFFFFF),
       body: Column(
@@ -49,19 +46,35 @@ class _MenuViewState extends State<MenuView> {
           const MyDatePicker(),
           Expanded(
             child: data != null
-          ? ListView.builder(
-              itemBuilder: (context, index) {
-                return ListTile(
-                  title: Text(data[index]["title"]),
-                  subtitle: Text("ID: ${data[index]["id"]}"),
-                  leading: Image.network(data[index]["url"]),
-                );
-              },
-              itemCount: data.length,
-            )
-          : const Center(
-              child: CircularProgressIndicator(),
-            ),
+                ? ListView.builder(
+                    itemBuilder: (context, index) {
+                      return Card(
+                        color: Colors.amber,
+                        child: Padding(
+                          padding: const EdgeInsets.all(3.0),
+                          child: Row(
+                            children: [
+                              Expanded(
+                                child: ListTile(
+                                  title: Text(data[index]["title"]),
+                                  subtitle: Text("ID: ${data[index]["id"]}"),
+                                  leading: Image.network(data[index]["url"]),
+                                ),
+                              ),
+                              IconButton(
+                                onPressed: () {},
+                                icon: const Icon(Icons.add_shopping_cart_sharp),
+                              )
+                            ],
+                          ),
+                        ),
+                      );
+                    },
+                    itemCount: data.length,
+                  )
+                : const Center(
+                    child: CircularProgressIndicator(),
+                  ),
           ),
         ],
       ),
