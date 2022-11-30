@@ -27,10 +27,17 @@ class _SenhasviewState extends State<Senhasview> {
 
   @override
   Widget build(BuildContext context) {
-    return Calendar(
-      changeDate,
-      _controller,
-      _selectedValue,
+    return Container(
+      child: Column(
+        children: [
+          Calendar(
+            changeDate,
+            _controller,
+            _selectedValue,
+          ),
+          Text(_selectedValue.toString()),
+        ],
+      ),
     );
   }
 }
