@@ -1,4 +1,4 @@
-import 'package:client/drawer.dart';
+import 'package:client/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:client/bottomNav.dart';
 import 'package:client/views/menu_view.dart';

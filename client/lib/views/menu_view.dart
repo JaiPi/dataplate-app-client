@@ -1,4 +1,5 @@
-import 'package:client/date_picker.dart';
+import 'package:client/widgets/date_picker.dart';
+import 'package:client/widgets/menu_list.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -44,40 +45,10 @@ class _MenuViewState extends State<MenuView> {
       body: Column(
         children: [
           const MyDatePicker(),
-          Expanded(
-            child: data != null
-                ? ListView.builder(
-                    itemBuilder: (context, index) {
-                      return Card(
-                        color: Colors.amber,
-                        child: Padding(
-                          padding: const EdgeInsets.all(3.0),
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: ListTile(
-                                  title: Text(data[index]["title"]),
-                                  subtitle: Text("ID: ${data[index]["id"]}"),
-                                  leading: Image.network(data[index]["url"]),
-                                ),
-                              ),
-                              IconButton(
-                                onPressed: () {},
-                                icon: const Icon(Icons.add_shopping_cart_sharp),
-                              )
-                            ],
-                          ),
-                        ),
-                      );
-                    },
-                    itemCount: data.length,
-                  )
-                : const Center(
-                    child: CircularProgressIndicator(),
-                  ),
-          ),
+          MenuList(data: data),
         ],
       ),
     );
   }
 }
+

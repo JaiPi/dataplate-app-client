@@ -1,4 +1,4 @@
-import 'package:client/date_picker.dart';
+import 'package:client/widgets/date_picker.dart';
 import 'package:flutter/material.dart';
 
 class Senhasview extends StatefulWidget {
