@@ -1,32 +1,37 @@
-import 'package:client/widgets/date_picker.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/src/widgets/container.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import '../widgets/my_senhas_title.dart';
+import '../widgets/ticket.dart';
 
-class Senhasview extends StatefulWidget {
-  const Senhasview({super.key});
+class SenhasView extends StatefulWidget {
+  const SenhasView({super.key});
 
   @override
-  State<Senhasview> createState() => _SenhasviewState();
+  State<SenhasView> createState() => _SenhasViewState();
 }
 
-class _SenhasviewState extends State<Senhasview> {
-
-  @override
-  void initState() {
-    super.initState();
-  }
-
+class _SenhasViewState extends State<SenhasView> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.replay),
-        onPressed: () {
-        },
-      ),
-      body: Column(
-        children: const [
-          MyDatePicker(),
-        ],
+    return Container(
+      color: Colors.blueGrey[100],
+      child: SingleChildScrollView(
+        child: Column(
+          children: const [
+            MysenhasTitle(),
+            Divider(
+              color: Colors.blueGrey,
+              height: 10,
+              thickness: 3,
+              indent: 20,
+              endIndent: 20,
+            ),
+            Ticket(),
+            Ticket(),
+          ],
+        ),
       ),
     );
   }

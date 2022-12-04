@@ -17,7 +17,7 @@ class _HomePageState extends State<HomePage> {
 
   List<Widget> views = [
     const MenuView(),
-    const Senhasview(),
+    const SenhasView(),
   ];
 
   void setView(int viewIndex) {
