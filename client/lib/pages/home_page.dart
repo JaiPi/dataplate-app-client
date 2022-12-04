@@ -1,8 +1,10 @@
+import 'package:client/dataplate-colors.dart';
 import 'package:client/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:client/bottomNav.dart';
 import 'package:client/views/menu_view.dart';
 import 'package:client/views/senhas_view.dart';
+import 'package:date_picker_timeline/date_picker_timeline.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -61,7 +63,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: views[_viewIndex],
       bottomNavigationBar: BottomNav(setView, _viewIndex),
-      backgroundColor: Colors.grey[200],
+      backgroundColor: DataPlateColors.cinzento,
       appBar: AppBar(
         title: Text(_title),
       ),

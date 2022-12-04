@@ -16,7 +16,6 @@ class _SenhasViewState extends State<SenhasView> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.blueGrey[100],
       child: SingleChildScrollView(
         child: Column(
           children: const [

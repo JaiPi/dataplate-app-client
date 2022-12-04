@@ -15,21 +15,25 @@ class MenuList extends StatelessWidget {
           ? ListView.builder(
               itemBuilder: (context, index) {
                 return Card(
-                  color: Colors.amber,
-                  child: Padding(
-                    padding: const EdgeInsets.all(3.0),
+                  //color: Colors.amber,
+                  child: SizedBox(
+                    width: 200,
+                    height: 150,
                     child: Row(
                       children: [
                         Expanded(
                           child: ListTile(
-                            title: Text(data[index]["title"]),
+                            title: Text(data[index]["title"].substring(0, 10)),
                             subtitle: Text("ID: ${data[index]["id"]}"),
                             leading: Image.network(data[index]["url"]),
                           ),
                         ),
-                        IconButton(
-                          onPressed: () {},
-                          icon: const Icon(Icons.add_shopping_cart_sharp),
+                        Container(
+                          padding: const EdgeInsets.all(10),
+                          child: ElevatedButton(
+                            onPressed: () {},
+                            child: const Text("Comprar"),
+                          ),
                         )
                       ],
                     ),

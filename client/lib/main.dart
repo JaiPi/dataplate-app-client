@@ -1,5 +1,6 @@
 import 'package:client/pages/home_page.dart';
 import 'package:flutter/material.dart';
+import 'package:client/dataplate-colors.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,8 +15,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'DataPlate',
       theme: ThemeData(
-        primarySwatch: Colors.pink,
-        backgroundColor: Colors.lightGreenAccent,
+        primarySwatch: DataPlateColors.laranjaMaterialColor,
+        //backgroundColor: Colors.lightGreenAccent,
         fontFamily: "Montserrat-Medium",
       ),
       home: const HomePage(),
