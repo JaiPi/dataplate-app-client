@@ -4,6 +4,10 @@ import 'package:firebase_core/firebase_core.dart' show FirebaseOptions;
 import 'package:flutter/foundation.dart'
     show defaultTargetPlatform, kIsWeb, TargetPlatform;
 
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+
+// ...
 /// Default [FirebaseOptions] for use with your Firebase apps.
 ///
 /// Example:
@@ -70,7 +74,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '54006036158',
     projectId: 'dataplate-15972',
     storageBucket: 'dataplate-15972.appspot.com',
-    iosClientId: '54006036158-6f171p34f8mhqubfj7equnbe709pf2va.apps.googleusercontent.com',
+    iosClientId:
+        '54006036158-6f171p34f8mhqubfj7equnbe709pf2va.apps.googleusercontent.com',
     iosBundleId: 'com.example.client',
   );
 }

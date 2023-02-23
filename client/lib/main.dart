@@ -1,6 +1,7 @@
 import 'package:client/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:client/dataplate-colors.dart';
+import 'package:client/pages/wrapper.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
         //backgroundColor: Colors.lightGreenAccent,
         fontFamily: "Montserrat-Medium",
       ),
-      home: const HomePage(),
+      home: const Wrapper(),
     );
   }
 }
