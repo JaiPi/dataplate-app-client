@@ -14,6 +14,12 @@ class AuthService {
       return null;
     }
   }
+
+  //auth change user stream
+  Stream<User?> get user {
+    return _auth.authStateChanges();
+  }
+
   //sign in email/password
 
   //register email/password

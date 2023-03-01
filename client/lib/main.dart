@@ -2,8 +2,14 @@ import 'package:client/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:client/dataplate-colors.dart';
 import 'package:client/pages/wrapper.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() {
+main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
