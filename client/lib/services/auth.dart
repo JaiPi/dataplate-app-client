@@ -22,6 +22,17 @@ class AuthService {
 
   //sign in email/password
 
+  Future signInEmailPassword() async {
+    try {
+      UserCredential result = await _auth.signInAnonymously();
+      User? user = result.user;
+      return user;
+    } catch (e) {
+      print(e.toString());
+      return null;
+    }
+  }
+
   //register email/password
 
   //signout
