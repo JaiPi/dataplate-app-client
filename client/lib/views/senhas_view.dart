@@ -30,10 +30,19 @@ class _SenhasViewState extends State<SenhasView> {
             Ticket(
               "Lasanha",
               "prato de carne",
+              "jantar",
               "7",
               "março",
               "assets/images/lasanha.png",
             ),
+            Ticket(
+              "Bacalhau com natas",
+              "prato de peixe",
+              "almoço",
+              "8",
+              "março",
+              "assets/images/bacalhau.png",
+            )
           ],
         ),
       ),

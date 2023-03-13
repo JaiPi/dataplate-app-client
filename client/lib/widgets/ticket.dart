@@ -7,9 +7,11 @@ class Ticket extends StatelessWidget {
   final String subtitulo;
   final String day;
   final String month;
+  final String schedule;
   final String fotopath;
 
-  const Ticket(this.titulo, this.subtitulo, this.day, this.month, this.fotopath,
+  const Ticket(this.titulo, this.subtitulo, this.schedule, this.day, this.month,
+      this.fotopath,
       {super.key});
 
   @override
@@ -20,25 +22,33 @@ class Ticket extends StatelessWidget {
         color: Colors.white,
         shadowColor: Colors.black,
         elevation: 5,
-        child: Column(
-          children: [
-            Image.asset(
-              fotopath,
-              fit: BoxFit.cover,
-              width: double.infinity,
-              height: 150,
-            ),
-            ListTile(
-              title: Text(titulo),
-              subtitle: Text(subtitulo),
-              trailing: Column(
-                children: [
-                  Text(day, textScaleFactor: 2),
-                  Text(month),
-                ],
+        child: InkWell(
+          onTap: () => null,
+          child: Column(
+            children: [
+              Image.asset(
+                fotopath,
+                fit: BoxFit.cover,
+                width: double.infinity,
+                height: 150,
               ),
-            ),
-          ],
+              ListTile(
+                title: Text(titulo),
+                subtitle: Row(
+                  children: [
+                    Text("$schedule - "),
+                    Text(subtitulo),
+                  ],
+                ),
+                trailing: Column(
+                  children: [
+                    Text(day, textScaleFactor: 2),
+                    Text(month),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
