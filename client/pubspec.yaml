@@ -39,6 +39,8 @@ dependencies:
   firebase_core: ^2.5.0
   firebase_auth: ^4.2.7
   get: ^4.6.5
+  qr_flutter: ^4.0.0
+  popup_banner: ^1.0.0
 
 dev_dependencies:
   flutter_test:
