@@ -1,10 +1,14 @@
+import 'package:client/pages/AuthController.dart';
 import 'package:flutter/material.dart';
 
 // https://www.youtube.com/watch?v=N1cXyRJL62I
 
-
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});
+
+  void logout() {
+    AuthController.instance.logout();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +35,8 @@ class MyDrawer extends StatelessWidget {
             title: Text("Email"),
             subtitle: Text("mtechviral@gmail.com"),
             trailing: Icon(Icons.edit),
-          )
+          ),
+          ElevatedButton(onPressed: logout, child: Text("Logout"))
         ],
       ),
     );
