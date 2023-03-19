@@ -41,6 +41,7 @@ dependencies:
   get: ^4.6.5
   qr_flutter: ^4.0.0
   popup_banner: ^1.0.0
+  cloud_firestore: ^4.4.5
 
 dev_dependencies:
   flutter_test:

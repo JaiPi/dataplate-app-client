@@ -53,4 +53,29 @@ class AuthController extends GetxController {
   void logout() async {
     await auth.signOut();
   }
+
+  void login(String email, password) async {
+    try {
+      await auth.signInWithEmailAndPassword(email: email, password: password);
+    } catch (e) {
+      Get.snackbar(
+        "title",
+        "message",
+        snackPosition: SnackPosition.BOTTOM,
+        backgroundColor: Colors.redAccent,
+        titleText: const Text(
+          "Ocorreu um erro no login",
+          style: TextStyle(color: Colors.white),
+        ),
+        messageText: Text(
+          e.toString(),
+          style: const TextStyle(color: Colors.white),
+        ),
+      );
+    }
+  }
+
+  Rx<User?> getUser() {
+    return _user;
+  }
 }
