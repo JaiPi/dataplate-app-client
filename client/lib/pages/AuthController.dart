@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'dart:ffi';
+
 import 'package:client/pages/home_page.dart';
 import 'package:client/pages/sign_in.dart';
 import 'package:flutter/cupertino.dart';
@@ -75,7 +78,7 @@ class AuthController extends GetxController {
     }
   }
 
-  Rx<User?> getUser() {
-    return _user;
+  User? getUser() {
+    return auth.currentUser;
   }
 }

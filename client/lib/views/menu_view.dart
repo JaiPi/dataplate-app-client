@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:client/pages/AuthController.dart';
 import 'package:client/widgets/date_picker.dart';
 import 'package:client/widgets/menu_list.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:date_picker_timeline/date_picker_timeline.dart';
@@ -22,7 +23,7 @@ class _MenuViewState extends State<MenuView> {
   var data;
   var data1;
   late DateTime _selectedValue;
-  var user = AuthController.instance.getUser();
+  User? user = AuthController.instance.getUser();
 
   void changeDate(DateTime date) {
     setState(() {
@@ -58,7 +59,6 @@ class _MenuViewState extends State<MenuView> {
 
   @override
   Widget build(BuildContext context) {
-    print(user.toString());
     return Column(
       children: [
         MyDatePicker(_selectedValue, changeDate),

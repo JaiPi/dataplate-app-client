@@ -1,4 +1,5 @@
 import 'package:client/pages/AuthController.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 // https://www.youtube.com/watch?v=N1cXyRJL62I
@@ -12,13 +13,14 @@ class MyDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    User? user = AuthController.instance.getUser();
     return Drawer(
       child: ListView(
         padding: const EdgeInsets.all(0),
         children: <Widget>[
-          const UserAccountsDrawerHeader(
+          UserAccountsDrawerHeader(
               accountName: Text("Pawan Kumar"),
-              accountEmail: Text("mtechviral@gmail.com"),
+              accountEmail: Text(user!.email.toString()),
               currentAccountPicture: CircleAvatar(
                 backgroundImage: NetworkImage(
                     "https://images.unsplash.com/photo-1497551060073-4c5ab6435f12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"),

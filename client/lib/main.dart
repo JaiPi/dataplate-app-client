@@ -1,5 +1,6 @@
 import 'package:client/pages/home_page.dart';
 import 'package:client/pages/sign_in.dart';
+import 'package:client/pages/splashscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:client/dataplate-colors.dart';
 import 'package:client/pages/AuthController.dart';
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
         //backgroundColor: Colors.lightGreenAccent,
         fontFamily: "Montserrat-Medium",
       ),
-      home: Sign_in(),
+      home: const SplashScreen(),
     );
   }
 }
