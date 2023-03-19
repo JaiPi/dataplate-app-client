@@ -1,34 +1,31 @@
 import 'dart:math';
 
 import 'package:client/dataplate-colors.dart';
-import 'package:client/services/auth.dart';
+import 'package:client/pages/AuthController.dart';
+import 'package:client/pages/sign_up.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class Sign_in extends StatefulWidget {
+class Sign_in extends StatelessWidget {
   const Sign_in({super.key});
-
-  @override
-  State<Sign_in> createState() => _Sign_inState();
-}
-
-class _Sign_inState extends State<Sign_in> {
-  final AuthService _auth = AuthService();
-
-  void signin() async {
-    User result = await _auth.signInAnon();
-    if (result == null)
-      print("error signing in :(");
-    else
-      print("It worked!! \nuID: " + result.uid);
-  }
-
-  void printUser(user) async {}
 
   @override
   Widget build(BuildContext context) {
     final _formKey = GlobalKey<FormState>();
+    var emailcontroller = TextEditingController();
+    var passwordcontroller = TextEditingController();
+
+    void go_to_signup() async {
+      Get.to(() => Sign_up());
+    }
+
+    void sign_in() {
+      Get.put(AuthController.instance
+          .login(emailcontroller.text.trim(), passwordcontroller.text.trim()));
+    }
 
     return Scaffold(
         appBar: AppBar(backgroundColor: DataPlateColors.larjanja),
@@ -42,7 +39,7 @@ class _Sign_inState extends State<Sign_in> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   TextFormField(
-                    controller: null,
+                    controller: emailcontroller,
                     decoration: const InputDecoration(
                       icon: Icon(Icons.email),
                       hintText: 'Enter your Email',
@@ -51,7 +48,7 @@ class _Sign_inState extends State<Sign_in> {
                   ),
                   TextFormField(
                     obscureText: true,
-                    controller: null,
+                    controller: passwordcontroller,
                     decoration: const InputDecoration(
                       icon: Icon(Icons.password),
                       hintText: 'Enter your password',
@@ -59,11 +56,19 @@ class _Sign_inState extends State<Sign_in> {
                     ),
                   ),
                   Container(
-                      padding: const EdgeInsets.only(left: 150.0, top: 40.0),
-                      child: ElevatedButton(
-                        onPressed: signin,
-                        child: Text('Submit'),
-                      )),
+                    padding: const EdgeInsets.only(top: 40.0),
+                    child: ElevatedButton(
+                      onPressed: sign_in,
+                      child: const Text('Entrar'),
+                    ),
+                  ),
+                  TextButton(
+                    child: const Text(
+                      "Não tens conta?",
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    onPressed: () => go_to_signup(),
+                  ),
                 ],
               ),
             ),
