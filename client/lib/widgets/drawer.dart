@@ -36,7 +36,14 @@ class MyDrawer extends StatelessWidget {
             subtitle: Text("mtechviral@gmail.com"),
             trailing: Icon(Icons.edit),
           ),
-          ElevatedButton(onPressed: logout, child: Text("Logout"))
+          Container(
+            padding: const EdgeInsets.only(left: 15, right: 15),
+            child: ElevatedButton(
+              onPressed: logout,
+              style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
+              child: const Text("Logout"),
+            ),
+          )
         ],
       ),
     );
